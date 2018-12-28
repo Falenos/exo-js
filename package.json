@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.js --port 9000",
+    "build": "webpack --config webpack/webpack.config.js",
+    "test": "mocha-webpack \"src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -22,14 +24,15 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "babel-polyfill": "^6.26.0",
+    "css-loader": "^2.0.2",
     "eslint": "^5.10.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react-dom": "^16.6.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.28.2",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.11"
   }

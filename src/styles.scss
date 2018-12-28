@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+  font-size: 22px;
+  font-weight: 600;
+  height: 100vh;
+  color: white;
+  #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+}
