@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from './styles.scss'
+import styles from './styles.scss';
+import {fetchData, fetchUserData, fetchUserRepos} from './Container.api';
 
-const Header = ({userData}) => {
+const UserDetails = ({userData}) => {
 	return (
 		<div>I have data</div>	
 	);
@@ -12,30 +13,50 @@ export default class Container extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			userData: null
+			userName: '',
+			userData: null,
+			userRepos: null
 		};
 	}
 
-	fetchData(user) {
-		fetch(`https://api.github.com/users/${user}`, {
-      method: 'get'
-    })
-    .then(response => response.json())
-    .then(jsonData => this.setState({userData: jsonData}))
-    .catch(err => {
-			console.log(err)
-    })
+	handleChange = event => {
+    this.setState({userName: event.target.value});
+  }
+
+	handleSubmit = event => {
+		event.preventDefault();
+		this.fetchData(this.state.userName);
 	};
 
+	fetchData = user => {
+		fetchUserData(user)
+			.then(jsonData => this.setState({userData: jsonData}))
+			.catch(err => {
+				console.warn(error);
+				this.setState({userData: null});
+			})
+		fetchUserRepos(user)
+		.then(jsonData => this.setState({userRepos: jsonData}))
+			.catch(err => {
+				console.warn(error);
+				this.setState({userRepos: null});
+			});
+	}
+
 	render() {
-		const {userData} = this.state;
+		const {userName, userData, userRepos} = this.state;
+		console.log(this.state);
 		return (
-			<div>
-				<div>Do your worst</div>
-				<input type='text' placeholder='Your github userName goes here'/>
-				<button onClick={() => this.fetchData('falenos')}>Generate CV</button>
-				{userData && <Header userData={userData}/>}
+			<div className='container'>
+				<form onSubmit={this.handleSubmit}>
+					<label>
+						UserName:
+						<input type="text" value={userName} onChange={this.handleChange} />
+					</label>
+					<input type="submit" value="Submit" />
+				</form>
+				{userData && <UserDetails userData={userData}/>}
 			</div>
 		);
-	};
+	}
 }
