@@ -50,7 +50,9 @@ export default class Container extends React.Component{
 					</label>
 					<input type="submit" value="Submit" />
 				</form>
+				<hr/>
 				{userData && <UserInfo userData={userData}/>}
+				<hr/>
 				{userRepos && <ReposList userRepos={userRepos}/>}
 			</div>
 		);
