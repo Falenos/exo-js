@@ -1,12 +1,7 @@
 import React from 'react';
-import styles from './styles.scss';
-import {fetchData, fetchUserData, fetchUserRepos} from './Container.api';
-
-const UserDetails = ({userData}) => {
-	return (
-		<div>I have data</div>	
-	);
-};
+import UserInfo from '../UserInfo/UserInfo';
+import ReposList from '../ReposList/ReposList';
+import {fetchUserData, fetchUserRepos} from './Container.api';
 
 export default class Container extends React.Component{
 	
@@ -50,12 +45,13 @@ export default class Container extends React.Component{
 			<div className='container'>
 				<form onSubmit={this.handleSubmit}>
 					<label>
-						UserName:
+						UserName: 
 						<input type="text" value={userName} onChange={this.handleChange} />
 					</label>
 					<input type="submit" value="Submit" />
 				</form>
-				{userData && <UserDetails userData={userData}/>}
+				{userData && <UserInfo userData={userData}/>}
+				{userRepos && <ReposList userRepos={userRepos}/>}
 			</div>
 		);
 	}

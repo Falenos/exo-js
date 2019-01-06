@@ -48,5 +48,8 @@ module.exports = {
 				],
 			}
     )
-  }
+  },
+  devServer: {
+    disableHostCheck: true // fixes wp-dev-server issue
+  },
 };
