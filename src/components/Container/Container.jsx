@@ -50,7 +50,6 @@ export default class Container extends React.Component{
 
 	render() {
 		const {userName, userData, userRepos} = this.state;
-		console.log(this.state);
 		return (
 			<div className='container'>
 				<h1>Who's Github</h1>
