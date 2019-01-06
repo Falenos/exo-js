@@ -1,13 +1,27 @@
 body {
-  background-color: black;
-  font-size: 22px;
-  font-weight: 600;
-  height: 100vh;
-  color: white;
-  #app {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+
+  /* Form styles reset */
+  input,
+  label,
+  button {
+    margin:0;
+    border:0;
+    padding:0;
+    display:inline-block;
+    vertical-align:middle;
+    white-space:normal;
+    background:none;
+    line-height:1;    
+    /* Browsers have different default form fonts */
+    font-size:13px;
+    font-family:Arial;
+  }
+  input:focus {
+    outline:0;
   }
 }

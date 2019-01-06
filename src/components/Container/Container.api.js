@@ -1,9 +1,16 @@
-export const fetchUserData = user => {
-  return fetch(`https://api.github.com/users/${user}`, {method: 'get'})
-    .then(response => response.json())
+export const getEndPoints = user => {
+  return {
+    userInfo: `https://api.github.com/users/${user}`,
+    userRepos: `https://api.github.com/users/${user}/reposdsdss`
+  };
 };
 
-export const fetchUserRepos = user => {
-  return fetch(`https://api.github.com/users/${user}/repos`, {method: 'get'})
-    .then(response => response.json())
+export const fetchData = path => {
+  return fetch(path, {method: 'get'})
+  .then(response => {
+    if(response.ok) {
+      return response.json()
+    }
+    throw new Error('Network response was not ok.');
+  })
 };
