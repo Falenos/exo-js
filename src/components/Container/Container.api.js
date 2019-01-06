@@ -1,7 +1,7 @@
 export const getEndPoints = user => {
   return {
     userInfo: `https://api.github.com/users/${user}`,
-    userRepos: `https://api.github.com/users/${user}/reposdsdss`
+    userRepos: `https://api.github.com/users/${user}/repos`
   };
 };
 
