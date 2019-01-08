@@ -3,8 +3,7 @@ const constants = require('./constants');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  // target: 'node', // this defines where it runs
-  mode: 'development',
+  mode: 'production',
   entry: {
     app: path.resolve(constants.paths.src , 'app.js')
   },
@@ -13,11 +12,11 @@ module.exports = {
 		filename: "bundle.js",
   },
 	plugins: [new HtmlWebpackPlugin({
-    title: "Giann",
+    title: "Who's Github",
     template: path.resolve(constants.paths.src, "index.html"),
 
   })],
-  // devtool: 'inline-cheap-module-source-map',
+  devtool: 'source-map',
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx'],

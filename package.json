@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.js --port 9001",
-    "build": "webpack --config webpack/webpack.config.js",
-    "test": "mocha-webpack \"src/**/*.test.js\""
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.dev.js --port 9000",
+    "prod": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.prod.js --port 9000",
+    "build": "webpack --config webpack/webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
