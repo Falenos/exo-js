@@ -2,22 +2,21 @@ import React from 'react';
 import styles from './Container.scss';
 import UserInfo from '../UserInfo/UserInfo';
 import ReposList from '../ReposList/ReposList';
-import {getEndPoints, fetchData, fetchUserData, fetchUserRepos} from './Container.api';
+import {getEndPoints, fetchData} from './Container.api';
 
-export default class Container extends React.Component{
-	
+export default class Container extends React.Component {
 	constructor(props) {
-		super(props);
+		super (props);
 		this.state = {
 			userName: '',
 			userData: null,
-			userRepos: null
+			userRepos: null,
 		};
 	}
 
 	handleChange = event => {
-    this.setState({userName: event.target.value});
-  }
+		this.setState({userName: event.target.value});
+	};
 
 	handleSubmit = event => {
 		event.preventDefault();
@@ -31,7 +30,7 @@ export default class Container extends React.Component{
 		console.warn(error);
 		this.setState({
 			...(totalReset ? {userData: null} : {}),
-			userRepos: null
+			userRepos: null,
 		});
 	};
 
@@ -52,11 +51,12 @@ export default class Container extends React.Component{
 		const {userName, userData, userRepos} = this.state;
 		return (
 			<div className='container'>
-				<h1>Who's Github</h1>
+				<h1>{'Who\'s Github'}</h1>
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						<span className='input-label'>Enter a User Name : </span> 
-						<input type='text' value={userName} onChange={this.handleChange} />
+						<input type='text' value={userName}
+							onChange={this.handleChange}/>
 					</label>
 					<input type='submit' value='Generate'/>
 				</form>

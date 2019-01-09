@@ -1,5 +1,5 @@
 export const getEndPoints = user => {
-  return {
+	return {
     userInfo: `https://api.github.com/users/${user}`,
     userRepos: `https://api.github.com/users/${user}/repos`
   };
@@ -7,10 +7,10 @@ export const getEndPoints = user => {
 
 export const fetchData = path => {
   return fetch(path, {method: 'get'})
-  .then(response => {
-    if(response.ok) {
-      return response.json()
-    }
-    throw new Error('Network response was not ok.');
-  })
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+      throw new Error('Network response was not ok.');
+    });
 };

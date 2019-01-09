@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const UserInfo = ({userData}) => {
-	const {name, login, created_at, bio, public_gists, public_repos, followers} = userData;
+	const {name, login, created_at, bio, public_gists, public_repos} = userData;
 	const createdAt = moment(new Date(created_at)).format('LL');
 	return (
 		<div>
