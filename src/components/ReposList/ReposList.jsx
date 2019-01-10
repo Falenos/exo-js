@@ -7,15 +7,15 @@ const ReposList = ({userRepos}) => {
 		<div>
 			<h2>Repositories</h2>
 			{userRepos.length ? 
-				userRepos.map(({id, name, description, language, stargazers_count, watchers_count}) => {
+				userRepos.map(({id, name, description, language, forks, watchers_count: watchers}) => {
 					return (
 						<Repo
 							key={id}
 							name={name}
 							description={description}
 							language={language}
-							stargazers_count={stargazers_count}
-							watchers_count={watchers_count}/>
+							forks={forks}
+							watchers={watchers}/>
 					);
 				}) : <span>This User has no public Repositories as of now.</span>
 			}

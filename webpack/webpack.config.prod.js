@@ -1,6 +1,7 @@
 const path = require('path');
 const constants = require('./constants');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	mode: 'production',
@@ -14,8 +15,7 @@ module.exports = {
 	plugins: [new HtmlWebpackPlugin({
 		title: "Who's Github",
 		template: path.resolve(constants.paths.src, 'index.html'),
-
-	})],
+	}), new BundleAnalyzerPlugin()],
 	devtool: 'source-map',
 	resolve: {
 		modules: ['node_modules'],

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.dev.js --port 9000",
-    "prod": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.prod.js --port 9000",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.dev.js --port 9001",
+    "prod": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack/webpack.config.prod.js --port 9001",
     "build": "webpack --config webpack/webpack.config.prod.js"
   },
   "repository": {
@@ -41,6 +41,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   }

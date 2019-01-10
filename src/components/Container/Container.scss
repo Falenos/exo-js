@@ -1,25 +1,6 @@
 .container {
   min-width: 60vw;
 
-  input[type=text],
-  input[type=text]:focus {
-    margin: 0 6px;
-    border-bottom: 1px solid rgb(202, 60, 60);
-    font-size: 16px;
-  }
-
-  input[type=submit] {
-    color: #ffff;
-    background: rgb(202, 60, 60);
-    padding: 4px 8px;
-    border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  }
-
-  .input-label {
-    font-size: 18px;
-  }
-
   a {
     color: rgb(202, 60, 60);
     text-decoration: none;

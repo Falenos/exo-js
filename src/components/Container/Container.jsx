@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Container.scss';
+import InputForm from '../InputForm/InputForm';
 import UserInfo from '../UserInfo/UserInfo';
 import ReposList from '../ReposList/ReposList';
 import {getEndPoints, fetchData} from './Container.api';
@@ -8,21 +9,15 @@ export default class Container extends React.Component {
 	constructor(props) {
 		super (props);
 		this.state = {
-			userName: '',
 			userData: null,
 			userRepos: null,
 		};
 	}
 
-	handleChange = event => {
-		this.setState({userName: event.target.value});
-	};
-
-	handleSubmit = event => {
-		event.preventDefault();
-		const {userName, userData} = this.state;
-		if (!userData || userName !== userData.login) {
-			this.getData(this.state.userName);
+	handleSubmit = name => {
+		const {userData} = this.state;
+		if (!userData || name !== userData.login) {
+			this.getData(name);
 		}
 	};
 
@@ -48,20 +43,23 @@ export default class Container extends React.Component {
 	}
 
 	render() {
-		const {userName, userData, userRepos} = this.state;
+		const {userData, userRepos} = this.state;
 		return (
 			<div className='container'>
 				<h1>{'Who\'s Github'}</h1>
-				<form onSubmit={this.handleSubmit}>
-					<label>
-						<span className='input-label'>Enter a User Name : </span> 
-						<input type='text' value={userName}
-							onChange={this.handleChange}/>
-					</label>
-					<input type='submit' value='Generate'/>
-				</form>
-				{userData && <UserInfo userData={userData}/>}
-				{userRepos && <ReposList userRepos={userRepos}/>}
+				<InputForm 
+					handleSubmit={this.handleSubmit}/> 
+				{userData && 
+					<UserInfo 
+						name={userData.name} 
+						login={userData.login}
+						createdAt={userData.created_at} 
+						bio={userData.bio}
+						publicGists={userData.public_gists} 
+						publicRepos={userData.public_repos}/>}
+				{userRepos && 
+					<ReposList 
+						userRepos={userRepos}/>}
 			</div>
 		);
 	}

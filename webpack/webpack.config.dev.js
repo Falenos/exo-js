@@ -22,7 +22,6 @@ module.exports = {
 		extensions: ['.js', '.jsx'],
 		symlinks: false,
 	},
-
 	module: {
 		rules: [].concat(
 			{
